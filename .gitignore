@@ -1,0 +1,5 @@
+*.pyc
+tis_integration_original/
+tis_integration/
+__pycache__/
+advance_obfuscated/
