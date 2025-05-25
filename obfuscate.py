@@ -10,7 +10,8 @@ integration_path = 'tis_integration_original'
 output_path = 'tis_integration'
 
 files_not_to_obfuscate = [
-    'const.py'
+    'const.py',
+    'security_dashboard.py',
 ]
 
 # Create output directory if it doesn't exist
