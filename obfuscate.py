@@ -32,7 +32,7 @@ for file_path in tqdm(glob.glob(os.path.join(integration_path, '**', '*.py'), re
         source,
         remove_literal_statements=True,
         combine_imports=True,
-    ) if os.path.basename(file_path) not in files_not_to_obfuscate else source
+    )
 
     # Replace tabs with spaces
     minified = minified.replace('\t', '    ')  # Replace tabs with 4 spaces
@@ -42,7 +42,7 @@ for file_path in tqdm(glob.glob(os.path.join(integration_path, '**', '*.py'), re
 
     # Save minified source
     with open(output_file, 'w') as f:
-        f.write(minified)
+        f.write(minified if os.path.basename(file_path) not in files_not_to_obfuscate else source)
 
 # Copy non-Python files
 for file_path in tqdm(glob.glob(os.path.join(integration_path, '**', '*.*'), recursive=True)):
